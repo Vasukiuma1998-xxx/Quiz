@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        button{
+            margin-top: 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="question">
+        <h1>Interactive Quiz</h1>
+        <p>1. What is the capital of France?</p>
+        <input type="radio" name="capital" id="correct1">Paris
+        <input type="radio" name="capital">London
+        <input type="radio" name="capital">Berlin<br>
+        <p>2. Which planet is known as the Red Planet?</p>
+        <input type="radio" name="planet" id="correct2">Mars
+        <input type="radio" name="planet">Venus
+        <input type="radio" name="planet">Jupiter<br>
+        <p>3. What is the largest mammal on Earth?</p>
+        <input type="radio" name="mammal">Elephant
+        <input type="radio" name="mammal"id="correct3">Blue whale
+        <input type="radio" name="mammal">Giraffe<br>
+        <button onclick="result()">Submit</button>
+    </div>
+    <div id="result" class="hidden">
+        <h1>Interactive Quiz</h1>
+        <h2>Your Quiz Result</h2>
+        <h3 id="score"></h3>
+    </div>
+    <script>
+        function result(){
+            var score=0;
+            if(document.getElementById("correct1").checked){
+                score++;
+            }
+            if(document.getElementById("correct2").checked){
+                score++;
+            }
+            if(document.getElementById("correct3").checked){
+                score++;
+            }
+            document.getElementById("question").classList.add("hidden")
+            document.getElementById("result").classList.remove("hidden")
+            document.getElementById("score").innerText="Score :"+score
+        }
+    </script>
+</body>
+</html>
